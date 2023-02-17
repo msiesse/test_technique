@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:13.1-alpine
+    container_name: axione-postgres
+    environment:
+      - POSTGRES_USER=axione
+      - POSTGRES_PASSWORD=axione
+      - POSTGRES_DB=axione_database
+    volumes:
+      - ./database/initdb.d:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    volumes:
+      - ./src:/src
+    ports:
+      - "8000:8000"
+
+volumes:
+  db_data:
