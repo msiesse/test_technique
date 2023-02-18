@@ -9,7 +9,6 @@ services:
       - POSTGRES_PASSWORD=axione
       - POSTGRES_DB=axione_database
     volumes:
-      - ./database/initdb.d:/docker-entrypoint-initdb.d
       - db_data:/var/lib/postgresql/data/
     ports:
       - "5432:5432"
