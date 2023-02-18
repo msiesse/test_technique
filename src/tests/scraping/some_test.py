@@ -16,5 +16,6 @@ class TestScrappingData:
     def test_should_get_price_of_appartment_rent_by_square_meter_from_csv(self):
         save_square_meter_rent_price()
 
+    @pytest.mark.skip("Scraping of population already done")
     def test_should_get_population_of_cities(self):
         save_cities_population()

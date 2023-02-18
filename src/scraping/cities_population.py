@@ -1,7 +1,6 @@
 import dataclasses
 
 import requests
-from sqlalchemy.orm import Session
 
 from scraping.database import init_db, CityModel
 
