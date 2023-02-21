@@ -2,7 +2,8 @@ import dataclasses
 
 import requests
 
-from scraping.database import init_db, CityModel
+from core.models import CityModel
+from scraping.database import init_db
 
 
 @dataclasses.dataclass

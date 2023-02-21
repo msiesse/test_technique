@@ -5,7 +5,8 @@ from typing import List, Tuple
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from scraping.database import init_db, CityModel
+from core.models import CityModel
+from scraping.database import init_db
 
 
 @dataclasses.dataclass

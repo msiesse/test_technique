@@ -5,8 +5,9 @@ import requests
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
 
+from core.models import CityModel
 from core.random_uuid import random_uuid
-from scraping.database import CityModel, init_db
+from scraping.database import init_db
 
 
 @dataclasses.dataclass
