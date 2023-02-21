@@ -14,25 +14,32 @@ Other folders are just conventionally following hexagonal architecture.
 `docker-compose.yml`: Docker Compose configuration file
 
 ## Installation
-- Install Docker and Docker Compose
 - Clone the repository
-- Build the Docker containers: docker-compose build
-- Run the containers: docker-compose up
+- Build the Docker containers: `docker-compose build`
+- Run the containers: `docker-compose up`
 
 ## Usage
 First launch the scraping of all data with the command `docker-compose run app pytest scraping/scraping_launch.py`
+
+
 Navigate to http://localhost:8000/docs in your web browser.
+
 Use the Swagger interface to input your desired budget, surface, and department.
 The application will return a list of recommended cities in France based on your inputs.
-Testing
-Build and start the Docker containers: docker-compose up --build -d
-Run the tests: docker-compose run app pytest src/tests
-Future Improvements
-Add an entry point for the scraper to allow for separate scraping from the main application.
-Allow users to search for cities in multiple departments.
-Allow users to input a range of prices, rather than a fixed budget, to give users more flexibility in their search.
-Refactor the web scraper code to be more modular, allowing for easier maintenance and reuse in future projects.
-Contributors
-Your Name - Developer
-License
-This project is licensed under the MIT License.
+
+## Testing
+Build and start the Docker containers: `docker-compose up --build -d`
+
+Run the tests: `docker-compose run app pytest src/tests`
+
+These are just unit tests. The application is not that complex. It looks like it's overkill 
+but it's a good demo of how I write unit tests.
+
+## Future Improvements
+- Add an entry point for the scraper to allow for separate scraping from the main application.
+- Allow users to search for cities in multiple departments.
+- Allow users to input a range of prices, rather than a fixed budget, to give users more flexibility in their search.
+- Refactor the web scraper code to be more modular, allowing for easier maintenance and reuse in future projects.
+
+## Contributors
+Martin Siesse - Developer
