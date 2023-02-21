@@ -1,5 +1,6 @@
 import csv
 import dataclasses
+import os
 from typing import List, Tuple
 
 from sqlalchemy import func
@@ -24,6 +25,8 @@ particularities = {
     "Le Chesnay": "Le Chesnay-Rocquencourt",
 }
 
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 def update_cities_entites_for_db(session: Session, cities: List[CityWithRentPrice]) -> None:
     for city in cities:
@@ -35,7 +38,7 @@ def update_cities_entites_for_db(session: Session, cities: List[CityWithRentPric
 
 def get_cities_from_csv() -> List[CityWithRentPrice]:
     cities = []
-    with open('assets/indicateurs-loyers-maisons.csv', 'r', encoding='latin-1', newline='') as csvfile:
+    with open(f'{current_dir}/assets/indicateurs-loyers-maisons.csv', 'r', encoding='latin-1', newline='') as csvfile:
         reader = csv.reader(csvfile, delimiter=';')
         next(reader)
         for row in reader:
