@@ -5,6 +5,7 @@ from typing import List, Tuple
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session
+from tqdm import tqdm
 
 from core.models import CityModel
 from scraping.database import init_db
@@ -58,9 +59,9 @@ def get_data_from_row(row) -> Tuple[str, str, float]:
 
 def update_particularities(city_department, city_name) -> str:
     if city_name == "Saint-Ouen" and city_department == "93":
-        city_name = "Saint-Ouen-sur-Seine"
+        return "Saint-Ouen-sur-Seine"
     elif city_name in particularities.keys():
-        city_name = particularities[city_name]
+        return particularities[city_name]
     return city_name
 
 

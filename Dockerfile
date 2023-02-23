@@ -4,6 +4,8 @@ WORKDIR /src
 
 ENV PYTHONDONTWRITEBYTECODE 1
 
+ENV PYTHONUNBUFFERED 1
+
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install gcc libpq-dev python3-dev -y
 

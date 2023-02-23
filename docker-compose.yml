@@ -3,6 +3,7 @@ version: '3'
 services:
   db:
     image: postgres:13.1-alpine
+    hostname: axione-postgres
     container_name: axione-postgres
     environment:
       - POSTGRES_USER=axione
@@ -17,9 +18,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    entrypoint: entrypoints/entrypoint.sh
+    hostname: axione-app
+    container_name: axione-app
     volumes:
       - ./src:/src
+      - ./entrypoints:/src/entrypoints
     ports:
       - "8000:8000"
 

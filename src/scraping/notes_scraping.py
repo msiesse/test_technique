@@ -1,7 +1,8 @@
 import dataclasses
+import requests
 from typing import List
 
-import requests
+from tqdm import tqdm
 from bs4 import BeautifulSoup
 from sqlalchemy.orm import Session
 
@@ -35,7 +36,7 @@ def get_note(text: str) -> float:
 
 
 def get_cities_from_page(page: int) -> List[CityNote]:
-    response = requests.get(f'https://www.bien-dans-ma-ville.fr/classement-ville-global/?page={page}')
+    response = requests.get(f'https://www.bien-dans-ma-ville.fr/classement-ville-global/?page={page}', verify=False)
     soup = BeautifulSoup(response.content, 'html.parser')
     body = soup.find('tbody')
     rows = body.find_all('tr')

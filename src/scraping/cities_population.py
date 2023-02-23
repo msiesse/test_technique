@@ -1,6 +1,7 @@
 import dataclasses
 
 import requests
+from tqdm import tqdm
 
 from core.models import CityModel
 from scraping.database import init_db

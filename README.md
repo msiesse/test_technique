@@ -26,6 +26,7 @@ Navigate to http://localhost:8000/docs in your web browser.
 
 Use the Swagger interface to input your desired budget, surface, and department.
 The application will return a list of recommended cities in France based on your inputs.
+You will only find cities that have a specific note.
 
 ## Testing
 Build and start the Docker containers: `docker-compose up --build -d`
@@ -36,10 +37,10 @@ These are just unit tests. The application is not that complex. It looks like it
 but it's a good demo of how I write unit tests.
 
 ## Future Improvements
-- Add an entry point for the scraper to allow for separate scraping from the main application.
 - Allow users to search for cities in multiple departments.
 - Allow users to input a range of prices, rather than a fixed budget, to give users more flexibility in their search.
 - Refactor the web scraper code to be more modular, allowing for easier maintenance and reuse in future projects.
+- Do the scraping part in an asynchronous way to go faster for notes scraping and population scraping parts
 
 ## Contributors
 Martin Siesse - Developer
